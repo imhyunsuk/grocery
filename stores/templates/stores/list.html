@@ -1,0 +1,22 @@
+{% load humanize %}
+<div class='row text-center text-lg-right'>
+  <div class="col-md-12" id="js-load">
+    <div class='my-3' id='output'></div>
+    <ul class="list-group" id="lists">
+  {% for item in items %}
+        <li class='js-load'>
+          <div class="list-group-item d-flex align-items-start">
+            <img class="lazy d-block float-left img-thumbnail img-fluid" data-src="{{item.img}}" width="60" height="60" >
+            <div class="ml-4">{{item.name}}&nbsp;
+              <span class="badge badge-pill badge-primary">{{item.event}}</span>&nbsp;
+              <span class="badge badge-danger">{{item.store}}</span>
+              <h5 class="text-left">{{item.price|intcomma}}원</h5>
+              <div class='date'>{{date}}</div>
+            </div>
+          </div>
+        </li>
+  {% endfor %}
+      <div id="js-btn-wrap" class="list-group-item btn-wrap"> <a href="javascript:;" class="btn">더 보기</a></div>
+    </ul>
+  </div>
+</div>

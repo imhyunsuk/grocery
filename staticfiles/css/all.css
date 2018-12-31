@@ -1,0 +1,26 @@
+.btn-wrap {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    background: #EEE;
+}
+
+.js-load {
+    display: block;
+}
+
+.js-load.active {
+    display: block;
+}
+
+.date {
+  width:10px;
+  height:10px;
+  position:absolute;
+  right:0px;
+  bottom:0px;
+}
+
+#output {
+  text-align: center;
+}

@@ -1,0 +1,11 @@
+{% extends 'stores/base.html' %}
+
+{% block content %}
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">{% include 'stores/list.html' with items=items %}</div>
+  <div class="tab-pane fade" id="nav-cu" role="tabpanel" aria-labelledby="nav-cu-tab">...</div>
+  <div class="tab-pane fade" id="nav-gs25" role="tabpanel" aria-labelledby="nav-gs25-tab">...</div>
+  <div class="tab-pane fade" id="nav-7eleven" role="tabpanel" aria-labelledby="nav-7eleven-tab">...</div>
+  <div class="tab-pane fade" id="nav-ministop" role="tabpanel" aria-labelledby="nav-ministop-tab">...</div>
+</div>
+{% endblock %}
