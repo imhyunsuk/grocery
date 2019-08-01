@@ -5,21 +5,20 @@
     background: #EEE;
 }
 
-.js-load {
-    display: block;
-}
-
 .js-load.active {
     display: block;
 }
 
 .date {
-  width:10px;
-  height:10px;
+  font-size: 0.5rem;
+  color: #a6a6a6;
+  width:10rem;
+  height:20px;
   position:absolute;
-  right:0px;
+  right:5px;
   bottom:0px;
 }
+
 
 #output {
   text-align: center;

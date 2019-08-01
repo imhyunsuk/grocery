@@ -23,11 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'm+6bp1qr+j8yhd0fcw-f_%y43kvw)9_fhu^d$^6u*1djz)ir=q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    '61elmjsi0j.execute-api.ap-northeast-2.amazonaws.com',
+    '*'
 ]
 
 
@@ -41,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sitemaps',
     'stores.apps.StoresConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -122,8 +123,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+from dotenv import load_dotenv
+load_dotenv()
+
+
+AWS_S3_REGION_NAME = 'ap-northeast-2'
+AWS_STORAGE_BUCKET_NAME = 'zappa-stores-static'
+AWS_QUERYSTRING_AUTH = False
+
+AWS_ACCESS_KEY_ID = os.getenv('ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = os.getenv('SECRET_KEY')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_DEFAULT_ACL = None
+
+# MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 
 if os.environ.get('DJANGO_DEVELOPMENT') is not None:
-    from settings_dev import *
+    from .settings_dev import *
