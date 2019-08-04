@@ -1,1 +1,1 @@
-env DJANGO_DEVELOPMENT=true python manage.py runserver
+export DJANGO_DEVELOPMENT=true && python manage.py runserver
