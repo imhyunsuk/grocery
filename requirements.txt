@@ -30,7 +30,7 @@ placebo==0.9.0
 psycopg2==2.8.3
 psycopg2-binary==2.8.3
 pyasn1==0.4.6
-PyJWT==1.7.1
+PyJWT==2.4.0
 python-dateutil==2.6.1
 python-dotenv==0.10.3
 python-editor==1.0.4
